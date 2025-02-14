@@ -35,5 +35,18 @@ pool-1-thread-57 🔍 Checked Stock: Product 6 - Fig => 8
 📦 Final Inventory: {Product 1 - Apple=2, Product 2 - Banana=0, ...}
 ```
 
+## 🔄 ConcurrentHashMap Conflicting time differnce  
+```
+Here are the calculated conflict time differences for each conflicting operation:
+Product	Action 1 (Thread, Timestamp)	Action 2 (Thread, Timestamp)	Time Difference (ms)
+Fig	Check Stock (14, 1739527639862)	Restock (23, 1739527639869)	   7 ms
+Grapes	Check Stock (4, 1739527639859)	Restock (15, 1739527639863)	4 ms
+Jackfruit	Restock (9, 1739527639861)	Purchase (12, 1739527639861)	   0 ms (Simultaneous)
+Apple	Purchase (25, 1739527639872)	Restock (39, 1739527639899)	      27 ms
+Grapes	Check Stock (34, 1739527639890)	Purchase (41, 1739527639902)	12 ms
+Grapes	Purchase (18, 1739527639865)	Restock (15, 1739527639863)	   -2 ms (Restock before Purchase)
+Eggplant	Restock (10, 1739527639862)	Check Stock (20, 1739527639866)	4 ms
+Banana	Check Stock (11, 1739527639861)	Purchase (16, 1739527639863)	2 ms
+```
 ## 🤝 Contributions  
 Feel free to fork and submit pull requests if you improve the conflict resolution logic or add new features! 🚀  
